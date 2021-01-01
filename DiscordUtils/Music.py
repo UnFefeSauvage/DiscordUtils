@@ -4,6 +4,7 @@ import discord
 import aiohttp
 import re
 
+yt_url = re.compile("https://www.youtube.com/.*")
 youtube_dl.utils.bug_reports_message = lambda: ''
 ydl = youtube_dl.YoutubeDL({"format": "bestaudio/best", "restrictfilenames": True, "noplaylist": True, "nocheckcertificate": True, "ignoreerrors": True, "logtostderr": False, "quiet": True, "no_warnings": True, "source_address": "0.0.0.0"})
 
@@ -83,7 +84,20 @@ async def get_video_data(url, search, bettersearch, loop):
             channel = data["uploader"]
             channel_url = data["uploader_url"]
             return Song(source, url, title, description, views, duration, thumbnail, channel, channel_url, False)
-        
+
+async def get_generic_song_data(url):
+    source = url
+    title = url.split('/')[-1]
+    description = 'Description unavailable'
+    likes = 0
+    dislikes = 0
+    views = 0
+    duration = 0 #TODO Get the actual duration
+    thumbnail = None
+    channel = None
+    channel_url = None
+    return Song(source, url, title, description, views, duration, thumbnail, channel, channel_url, False)
+
 def check_queue(ctx, opts, music, after, on_play, loop):
     try:
         song = music.queue[ctx.guild.id][0]
@@ -168,7 +182,13 @@ class MusicPlayer(object):
     def on_remove_from_queue(self, func):
         self.on_remove_from_queue_func = func
     async def queue(self, url, search=False, bettersearch=False):
-        song = await get_video_data(url, search, bettersearch, self.loop)
+        #* If it corresponds, use the youtube Song generator
+        if yt_url.match(url):
+            song = await get_video_data(url, search, bettersearch, self.loop)
+        #* Else, use the universal one
+        else:
+            song = await get_generic_song_data(url)
+        
         self.music.queue[self.ctx.guild.id].append(song)
         if self.on_queue_func:
             await self.on_queue_func(self.ctx, song)
