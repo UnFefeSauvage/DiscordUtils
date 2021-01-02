@@ -4,7 +4,8 @@ import discord
 import aiohttp
 import re
 
-yt_url = re.compile("https://www.youtube.com/.*")
+generic_url = re.compile(r"https?://.*")
+yt_url = re.compile(r"https://www.youtube.com/.*")
 youtube_dl.utils.bug_reports_message = lambda: ''
 ydl = youtube_dl.YoutubeDL({"format": "bestaudio/best", "restrictfilenames": True, "noplaylist": True, "nocheckcertificate": True, "ignoreerrors": True, "logtostderr": False, "quiet": True, "no_warnings": True, "source_address": "0.0.0.0"})
 
@@ -181,11 +182,9 @@ class MusicPlayer(object):
         self.on_volume_change_func = func
     def on_remove_from_queue(self, func):
         self.on_remove_from_queue_func = func
-    async def queue(self, url, search=False, bettersearch=False):
-        #* If it corresponds, use the youtube Song generator
-        if yt_url.match(url):
+    async def queue(self, url, search=False, bettersearch=False, allow_generic_file = False):
+        if (not allow_generic_file) or ( yt_url.match(url) or not generic_url.match(url) ):
             song = await get_video_data(url, search, bettersearch, self.loop)
-        #* Else, use the universal one
         else:
             song = await get_generic_song_data(url)
         
