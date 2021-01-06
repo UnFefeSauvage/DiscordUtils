@@ -4,13 +4,13 @@ with open("README.md", "r", encoding="utf-8", errors="ignore") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="DiscordUtils",
-    version="1.2.6",
-    author="toxicrecker",
+    name="DiscordUtils_UFS",
+    version="0.1",
+    author="UnFefeSauvage",
     description="DiscordUtils is a very useful library made to be used with discord.py",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://www.github.com/toxicrecker/DiscordUtils",
+    url="https://www.github.com/UnFefeSauvage/DiscordUtils",
     packages=setuptools.find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
