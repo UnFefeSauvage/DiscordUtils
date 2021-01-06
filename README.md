@@ -2,7 +2,7 @@
 A very useful library made to be used in with [discord.py](https://pypi.org/project/discord.py/)
 
 # Installation
-`pip install DiscordUtils`
+`pip install DiscordUtils` for the original version, this fork is not published on pypi
 
 # Example code
 
