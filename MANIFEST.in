@@ -1,3 +1,3 @@
-include DiscordUtils/Pagination.py
-include DiscordUtils/InviteTracker.py
-include DiscordUtils/Music.py
+include DiscordUtils/pagination.py
+include DiscordUtils/invitetracker.py
+include DiscordUtils/music.py
