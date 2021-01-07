@@ -160,13 +160,3 @@ async def remove(ctx, index):
     song = await player.remove_from_queue(int(index))
     await ctx.send(f"Removed {song.name} from queue")
 ```
-
-- For further information please read the documentation.
-
-# Links
-**[Documentation](https://docs.discordutils.gq)**
-
-**[PyPi](https://pypi.discordutils.gq)**
-
-# Support
-DM/PM `toxic_recker#6764` on Discord
