@@ -42,7 +42,6 @@ async def get_video_data(url, search, bettersearch, loop):
         title = data["title"]
         description = data["description"]
         likes = data["like_count"]
-        dislikes = data["dislike_count"]
         views = data["view_count"]
         duration = data["duration"]
         thumbnail = data["thumbnail"]
@@ -58,7 +57,6 @@ async def get_video_data(url, search, bettersearch, loop):
             title = data["title"]
             description = data["description"]
             likes = data["like_count"]
-            dislikes = data["dislike_count"]
             views = data["view_count"]
             duration = data["duration"]
             thumbnail = data["thumbnail"]
@@ -78,7 +76,6 @@ async def get_video_data(url, search, bettersearch, loop):
             title = data["title"]
             description = data["description"]
             likes = data["like_count"]
-            dislikes = data["dislike_count"]
             views = data["view_count"]
             duration = data["duration"]
             thumbnail = data["thumbnail"]
@@ -91,7 +88,6 @@ async def get_generic_song_data(url):
     title = url.split('/')[-1]
     description = 'Description unavailable'
     likes = 0
-    dislikes = 0
     views = 0
     duration = 0 #TODO Get the actual duration
     thumbnail = None
