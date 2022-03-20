@@ -3,6 +3,7 @@ A very useful library made to be used in with [discord.py](https://pypi.org/proj
 
 ## Disclaimer
 **The _only_ notable difference between this fork and the original is the ability for the music player to play any video or audio file available through https.** \
+This is simply a deactivated capability of the original library and *it is deactivated for a good reason.* \
 **Note that this is not secure and should not be used, or only with trusted people!** \
 **Therfore if you don't need it I suggest you stick with [the original library.](https://github.com/toxicrecker/DiscordUtils)**
 
