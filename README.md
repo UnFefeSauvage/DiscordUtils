@@ -1,7 +1,10 @@
 # DiscordUtils-UFS
-A very useful library made to be used in with [discord.py](https://pypi.org/project/discord.py/) \
-The only notable difference between this fork and the original is the ability for the music player to play any video or audio file available through https. \
-Therfore if it doesn't interest you I suggest you stick with [the original library.](https://github.com/toxicrecker/DiscordUtils)
+A very useful library made to be used in with [discord.py](https://pypi.org/project/discord.py/)
+
+## Disclaimer
+**The _only_ notable difference between this fork and the original is the ability for the music player to play any video or audio file available through https.** \
+**Note that this is not secure and should not be used, or only with trusted people!** \
+**Therfore if you don't need it I suggest you stick with [the original library.](https://github.com/toxicrecker/DiscordUtils)**
 
 # Installation
 `pip install git+git://github.com/UnFefeSauvage/DiscordUtils.git`
